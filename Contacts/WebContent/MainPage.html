@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Contacts</title>
+<style>
+* {
+	font-family:"함초롱바탕","맑은 고딕","돋움",sans-serif;
+	margin-left:0%;
+	margin-right:0%;
+	margin-top:0%;
+}
+
+header {
+	background-color:#CED8F6;
+}
+
+aside {
+	width:170px;
+	display:table-cell;	
+}
+
+section {
+	display:table-cell;
+}
+
+* li {
+	margin:10px;
+	list-style-type:square;
+	padding:5px;
+}
+
+table * {
+	padding:3px;
+	margin:3px;
+}
+
+tr:nth-child(2n+1) {
+	background-color:lightgray;
+}
+
+a {
+	font-weight:500;
+	color:blue;
+	text-decoration:none;
+}
+
+a:hover {
+	background-color:lightgray;
+}
+
+form > input {
+	font-size:15px;
+	color:blue;
+	border: 1px solid blue;
+	background-color:white;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 헤더 부분입니다. -->
+<header><br>
+	<form action="$" method="post">
+
+	<h1>&nbsp;컴퓨터공학과 주소록</h1>
+	<h3>&nbsp;&nbsp;<select name="group">
+		<option value="그룹명">그룹명</option>
+		<option value="이름">이름</option>
+		<option value="소속">소속</option>
+	</select>
+	&nbsp;을 기준으로 <b>검색</b> : <input type="text" name="search">&nbsp;
+	<input type="submit" value="검색" style="font-size:15px; color:blue; border: 1px solid blue; background-color:white;"></h3>
+<hr>
+</form>
+</header>
+
+<!-- 왼쪽 사이드 부분입니다. -->
+<aside>
+<nav><br>
+	<ul>
+		<li><a href="Add_Contacts.html">연락처 추가</a></li>
+		<li><a href="Group_List.html">그룹 관리</a></li>
+		<li><a href="Recycle_Bin.html">휴지통</a></li>
+</ul>
+</nav>
+</aside>
+
+<!-- 오른쪽 메인 부분입니다. -->
+<section id="main">
+<article><br>
+	<form action="#" method="post">
+	&nbsp;&nbsp;<b>▣&nbsp;(선택된 연락처를)</b>
+	&nbsp;&nbsp;<input type="button" value="수정" onclick="mySubmit(1)">
+	&nbsp;&nbsp;<input type="button" value="삭제" onclick="mySubmit(2)"><br><br>
+	<!-- 1개의 폼에서 2개의 입력을 구분하기 위해 submit 대신 button과 onClick 이벤트를 이용해 
+		 이벤트를 javaScrpit로 구분하여 처리할 생각입니다.-->
+	
+	<!-- 추후 DB구현시 실제 데이터를 입력받을 수 있게 바꿀 예정입니다. -->	 
+	<table border="1" style="border-collapse:collapse;">
+		<tr>
+			<th><input type="checkbox" name="chk_all"></th>
+			<th><b>이름</b></th>
+			<th>그룹명 </th>
+			<th>전화번호 </th>
+			<th>이메일 </th>
+			<th>소속 </th>
+			<th>부서명 </th>
+			<th>직책 </th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="chk"></td>
+			<td><a href ="view_contacts.html">송금종 </a></td>
+			<td>내연락처</td>
+			<td>010-3244-7334</td>
+			<td>skgb0909@naver.com</td>
+			<td>인하대학교</td>
+			<td>컴퓨터공학과</td>
+			<td>학생</td>
+		</tr>
+	</table>
+	</form>
+</article>
+</section>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modefied</title>
+</head>
+<body>
+
+<h1>&nbsp;연락처 수정</h1>
+
+<form action="MainPage.html" method="post">
+
+<table style="width:350px; height:400px; border-collapse:collapse">
+	<tr>
+		<td>그룹설정</td>
+		<td>
+			<select name="group">
+			<option value="내연락처">내연락처</option>
+			<!-- 임의로 만들어둔 임시그룹 -->
+			<option value="그룹2">그룹2</option>
+			<option value="그룹3">그룹3</option>
+			<option value="그룹4">그룹4</option>
+			<!-- 추후 그룹생성 기능 구현시 삭제 예정 -->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td><input type="text" name="name"></td>
+	</tr>
+	<tr>
+		<td>전화번호</td>
+		<td><input type="text" name="call_number"></td>
+	</tr>
+	<tr>
+		<td>사진</td>
+		<td><input type="file" accept="image/gif,image/jpg" name="image"></td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td><input type="email" name="email"></td>
+	</tr>
+	<tr>
+		<td>소속</td>
+		<td><input type="text" name="belong"></td>
+	</tr>
+	<tr>
+		<td>부서명</td>
+		<td><input type="text" name="dep_name"></td>
+	</tr>
+	<tr>
+		<td>직책</td>
+		<td><input type="text" name="position"></td>
+	</tr>
+	<tr>
+		<td>생년월일</td>
+		<td><input type="number" name="birth"></td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td><input type="text" name="address"></td>
+	</tr>
+	<tr>
+		<td>홈페이지</td>
+		<td><input type="text" name="homepage"></td>
+	</tr>
+	<tr>
+		<td>SNS ID</td>
+		<td><input type="text" name="sns_id"></td>
+	</tr>
+	<tr>
+		<td>메모</td>
+		<td><textarea rows="5" cols="22" name="memo"></textarea></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="수정">&nbsp;&nbsp;&nbsp;<input type="reset" value="취소"></td>
+		<!-- 수정 버튼을 누르면 데이터를 수정함-->
+	</tr>
+</table>
+</form>
+</body>
+</html>

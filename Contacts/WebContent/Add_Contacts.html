@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Contacts</title>
+<script>
+/*하나의 alert창에 입력한 값 출력, 필수 입력항목 입력 확인 */
+function checkSubmit() {
+	/*입력한 값을 alert창에 출력하기 위해 임시 저장할 변수 선언*/
+	var arr = document.getElementsByTagName("input");
+	var group = document.getElementById("group");
+	var group_v;
+	var memo = document.getElementById("memo");
+	
+	for(i=0; i<group.options.length; i++) {
+		if(group.options[i].selected == true) {
+			group_v = group.options[i].value;
+			break;
+		}
+	}
+	
+	/*이름을 제대로 입력했는지 체크하는 함수*/
+	var a = checkName();
+	if (a==0)
+		return false;	/*만일 이름이 제대로 입력 안됬으면 submit 안되게 false 리턴*/
+	
+	/*번호을 제대로 입력했는지 체크하는 함수*/
+	var b = checkNumber();
+	if (b==0)
+		return false;	/*만일 번호가 제대로 입력 안됬으면 submit 안되게 false 리턴*/
+	
+	/*alert창에 입력 받은 모든 값을 출력*/
+	else {
+		alert("그룹 : " + group_v + "\n이름 : " + arr[0].value + "\n전화번호 : " + arr[1].value + "\n이메일 : "
+				+ arr[3].value + "\n소속 : " + arr[4].value + "\n부서명 : " + arr[5].value + "\n직책 : "
+				+ arr[6].value + "\n생년월일 : " + arr[7].value+ "\n주소 : " + arr[8].value+ "\n홈페이지 : "
+				+ arr[9].value + "\nSNS ID : " + arr[10].value + "\n메모 : " + memo.value);
+		return true;
+	}
+}
+
+/*이름을 제대로 입력했는지 체크하는 함수*/
+function checkName() {
+	var exp =/[가-힣]{2,}/;	/*이름 입력 시 2글자이상의 한글만 입력받도록 Regular Expression 패턴 지정*/
+	var obj = document.getElementById("name");
+	if(obj.value.match(exp)) {
+		return 1;
+	} else {
+		alert("2글자 이상의 이름을 입력하세요. (한글만 입력가능)");
+		obj.focus();
+		return 0;
+	}
+}
+
+/*번호를 제대로 입력했는지 체크하는 함수*/
+function checkNumber() {
+	var exp =/[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/;	/*번호 입력 시 000-0000-0000 양식에 맞게 입력받도록 Regular Expression 패턴 지정*/
+	var obj = document.getElementById("call_number");
+	if(obj.value.match(exp)) {
+		return 1;
+	} else {
+		alert("000-0000-0000 양식에 맞춰 입력하세요.");
+		obj.focus();
+		return 0;
+	}
+}
+</script>
+</head>
+<body>
+
+<h1>&nbsp;연락처 추가</h1>
+
+<form action="Add_View.jsp" method="post" onsubmit="return checkSubmit()">
+<table style="width:350px; height:400px; border-collapse:collapse">
+	<tr>
+		<td>그룹설정</td>
+		<td>
+			<select name="group" id="group">
+			<option value="내연락처">내연락처</option>
+			<!-- 임의로 만들어둔 임시그룹 -->
+			<option value="그룹2">그룹2</option>
+			<option value="그룹3">그룹3</option>
+			<option value="그룹4">그룹4</option>
+			<!-- 추후 그룹생성 기능 구현시 삭제 예정 -->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td><input type="text" id="name" name="name"></td>
+	</tr>
+	<tr>
+		<td>전화번호</td>
+		<td><input type="text" id="call_number" name="call_number"></td>
+	</tr>
+	<tr>
+		<td>사진</td>
+		<td><input type="file" accept="image/gif,image/jpg" name="image"></td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td><input type="email" name="email"></td>
+	</tr>
+	<tr>
+		<td>소속</td>
+		<td><input type="text" name="belong"></td>
+	</tr>
+	<tr>
+		<td>부서명</td>
+		<td><input type="text" name="dep_name"></td>
+	</tr>
+	<tr>
+		<td>직책</td>
+		<td><input type="text" name="position"></td>
+	</tr>
+	<tr>
+		<td>생년월일</td>
+		<td><input type="date" name="birth"></td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td><input type="text" name="address"></td>
+	</tr>
+	<tr>
+		<td>홈페이지</td>
+		<td><input type="url" name="homepage"></td>
+	</tr>
+	<tr>
+		<td>SNS ID</td>
+		<td><input type="text" name="sns_id"></td>
+	</tr>
+	<tr>
+		<td>메모</td>
+		<td><textarea rows="5" cols="22" name="memo" id="memo"></textarea></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="추가">&nbsp;&nbsp;&nbsp;<input type="reset" value="초기화"></td>
+		<!-- db구현 후에는  추가 버튼을 누르면 데이터베이스에 데이터를 추가 후 메인 화면으로 돌아감-->
+	</tr>
+</table>
+</form>
+</body>
+</html>
