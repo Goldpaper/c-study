@@ -11,7 +11,7 @@ request.setCharacterEncoding("UTF-8");
 String group=request.getParameter("group");
 String name=request.getParameter("name");
 String call_number=request.getParameter("call_number");
-
+String image=request.getParameter("image");
 /*이미지 출력*/
 
 String email=request.getParameter("email");
@@ -25,7 +25,7 @@ String sns_id=request.getParameter("sns_id");
 String memo=request.getParameter("memo");
 %>
 <h2>&nbsp;&nbsp;입력받은 결과</h2>
-<table border = "1" style="width:350px; height:400px; border-collapse:collapse">
+<table border = "1" style="height:400px; border-collapse:collapse">
 	<tr>
 		<td>그룹명</td>
 		<td><%=group%></td>
@@ -40,7 +40,7 @@ String memo=request.getParameter("memo");
 	</tr>
 	<tr>
 		<td>사진</td>
-		<td>&nbsp;--- </td>
+		<td><%=image%></td>
 	</tr>
 	<tr>
 		<td>이메일</td>
