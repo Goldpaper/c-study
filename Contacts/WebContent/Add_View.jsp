@@ -12,8 +12,6 @@ String group=request.getParameter("group");
 String name=request.getParameter("name");
 String call_number=request.getParameter("call_number");
 String image=request.getParameter("image");
-/*이미지 출력*/
-
 String email=request.getParameter("email");
 String belong=request.getParameter("belong");
 String dep_name=request.getParameter("dep_name");
